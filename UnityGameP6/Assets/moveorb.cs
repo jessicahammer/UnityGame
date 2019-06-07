@@ -36,6 +36,16 @@ public class moveorb : MonoBehaviour
 
         }
     }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.tag == "lethal")
+        {
+            Destroy(gameObject);
+                 
+        }
+    }
+
     IEnumerator stopSlide ()
     {
         yield return new WaitForSeconds(.5f);
