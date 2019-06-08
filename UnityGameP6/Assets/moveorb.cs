@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class moveorb : MonoBehaviour
 {
@@ -61,6 +62,11 @@ public class moveorb : MonoBehaviour
         {
             GM.vertVel = 0;
         }
+        if (other.gameObject.name == "exit")
+        {
+            SceneManager.LoadScene("levelcomplete");
+        }
+
     }
 
     IEnumerator stopSlide ()
