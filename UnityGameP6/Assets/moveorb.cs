@@ -19,7 +19,7 @@ public class moveorb : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GetComponent<Rigidbody>().velocity = new Vector3(horizVel, 0 , 4);
+        GetComponent<Rigidbody>().velocity = new Vector3(horizVel, GM.vertVel, 4);
         if ((Input.GetKeyDown(moveL)) && (laneNum>1) && (controlLocked == "n"))
         {
             horizVel = -2;
@@ -48,6 +48,18 @@ public class moveorb : MonoBehaviour
         if (other.gameObject.name == "Capsule")
         {
             Destroy(other.gameObject);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.name == "rampbottomtrigger")
+        {
+            GM.vertVel = 2;
+        }
+        if (other.gameObject.name == "ramptoptrigger")
+        {
+            GM.vertVel = 0;
         }
     }
 
