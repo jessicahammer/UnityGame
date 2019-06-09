@@ -66,6 +66,11 @@ public class moveorb : MonoBehaviour
         {
             SceneManager.LoadScene("levelcomplete");
         }
+        if (other.gameObject.name == "coin")
+        {
+            Destroy(other.gameObject);
+            GM.coinTotal += 1;
+        }
 
     }
 
