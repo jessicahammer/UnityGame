@@ -21,5 +21,9 @@ public class stats : MonoBehaviour
         {
             GetComponent<TextMesh>().text = "Time: " + Mathf.Round(GM.timeTotal * 100f) / 100f + "s";
         }
+        if (gameObject.name == "runstatus")
+        {
+            GetComponent<TextMesh>().text = GM.lvlCompStatus;
+        }
     }
 }

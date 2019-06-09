@@ -26426,6 +26426,7 @@ MonoBehaviour:
   horizVel: 0
   laneNum: 2
   controlLocked: n
+  boomObj: {fileID: 7610776799522955959, guid: 31eb14853f8824b66bb647ccf98fe939, type: 3}
 --- !u!1 &1779257064
 GameObject:
   m_ObjectHideFlags: 0

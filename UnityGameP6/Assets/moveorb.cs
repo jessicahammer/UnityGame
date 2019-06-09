@@ -11,6 +11,9 @@ public class moveorb : MonoBehaviour
     public float horizVel = 0;
     public int laneNum = 2;
     public string controlLocked = "n";
+
+    public Transform boomObj;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -43,7 +46,10 @@ public class moveorb : MonoBehaviour
         if (other.gameObject.tag == "lethal")
         {
             Destroy(gameObject);
-                 
+            GM.zVelAdj = 0;
+            Instantiate(boomObj, transform.position, boomObj.rotation);
+            GM.lvlCompStatus = "Fail";
+
         }
 
         if (other.gameObject.name == "Capsule")
@@ -64,6 +70,7 @@ public class moveorb : MonoBehaviour
         }
         if (other.gameObject.name == "exit")
         {
+            GM.lvlCompStatus = "Success!";
             SceneManager.LoadScene("levelcomplete");
         }
         if (other.gameObject.name == "coin")
