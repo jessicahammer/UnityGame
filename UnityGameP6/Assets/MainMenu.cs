@@ -8,5 +8,11 @@ public class MainMenu : MonoBehaviour
    public void PlayGame()
     {
         SceneManager.LoadScene("level1");
+
+    }
+    public void PlayGameHeavy()
+    {
+        SceneManager.LoadScene("level2");
+
     }
 }
