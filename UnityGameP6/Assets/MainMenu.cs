@@ -15,4 +15,10 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("level2");
 
     }
+    public void LoadMenu()
+    {
+        SceneManager.LoadScene("menu");
+
+    }
+
 }
