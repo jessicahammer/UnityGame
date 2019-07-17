@@ -20,7 +20,7 @@ public class moveorb : MonoBehaviour
 
     }
 
-    // Update is called once per frame
+    // Steuerung und Drehen vom Ball
     void Update()
     {
         GetComponent<Rigidbody>().velocity = new Vector3(horizVel, GM.vertVel, 4);
@@ -45,6 +45,7 @@ public class moveorb : MonoBehaviour
         }
     }
 
+    // Kollisionen - Sound einbinden und Bild stehen lassem 
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.tag == "lethal")
@@ -61,8 +62,11 @@ public class moveorb : MonoBehaviour
         {
             FindObjectOfType<AudioManager>().Play("PowerUp");
             Destroy(other.gameObject);
+            
         }
     }
+
+    // Rampe - hoch +2 // Exit = Spielende, dann success laden
 
     private void OnTriggerEnter(Collider other)
     {
@@ -77,7 +81,7 @@ public class moveorb : MonoBehaviour
         if (other.gameObject.name == "exit")
         {
             GM.lvlCompStatus = "Success!";
-            SceneManager.LoadScene("levelcomplete");
+            SceneManager.LoadScene("success");
         }
         if (other.gameObject.name == "coin")
         {
