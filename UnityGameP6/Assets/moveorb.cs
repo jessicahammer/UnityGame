@@ -39,12 +39,17 @@ public class moveorb : MonoBehaviour
             controlLocked = "y";
 
         }
+        if (gameObject.name == "Player")
+        {
+            transform.Rotate(3, 0, 0);
+        }
     }
 
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.tag == "lethal")
         {
+            FindObjectOfType<AudioManager>().Play("GameOver");
             Destroy(gameObject);
             GM.zVelAdj = 0;
             Instantiate(boomObj, transform.position, boomObj.rotation);
@@ -54,6 +59,7 @@ public class moveorb : MonoBehaviour
 
         if (other.gameObject.name == "Capsule")
         {
+            FindObjectOfType<AudioManager>().Play("PowerUp");
             Destroy(other.gameObject);
         }
     }
@@ -75,6 +81,7 @@ public class moveorb : MonoBehaviour
         }
         if (other.gameObject.name == "coin")
         {
+            FindObjectOfType<AudioManager>().Play("CoinSound");
             Destroy(other.gameObject);
             GM.coinTotal += 1;
         }
