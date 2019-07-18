@@ -13,7 +13,8 @@ public class moveorb : MonoBehaviour
     public string controlLocked = "n";
 
     public Transform boomObj;
-
+    [Range(0, 5)]
+    public float speed;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +24,7 @@ public class moveorb : MonoBehaviour
     // Steuerung und Drehen vom Ball
     void Update()
     {
+
         GetComponent<Rigidbody>().velocity = new Vector3(horizVel, GM.vertVel, 4);
         if ((Input.GetKeyDown(moveL)) && (laneNum>1) && (controlLocked == "n"))
         {
@@ -37,12 +39,17 @@ public class moveorb : MonoBehaviour
             StartCoroutine(stopSlide());
             laneNum += 1;
             controlLocked = "y";
-
         }
+
         if (gameObject.name == "Player")
         {
             transform.Rotate(3, 0, 0);
         }
+        if (gameObject.name == "coinstext")
+        {
+            GetComponent<TextMesh>().text = "Coins " + GM.coinTotal;
+        }
+      
     }
 
     // Kollisionen - Sound einbinden und Bild stehen lassem 
@@ -62,7 +69,9 @@ public class moveorb : MonoBehaviour
         {
             FindObjectOfType<AudioManager>().Play("PowerUp");
             Destroy(other.gameObject);
-            
+            GM.coinTotal += 10;
+
+           
         }
     }
 
@@ -89,6 +98,7 @@ public class moveorb : MonoBehaviour
             Destroy(other.gameObject);
             GM.coinTotal += 1;
         }
+
 
     }
 

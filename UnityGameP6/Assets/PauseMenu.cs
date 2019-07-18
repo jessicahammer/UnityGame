@@ -50,6 +50,6 @@ public void LoadMenu()
 
 public void QuitGame()
 {
-    SceneManager.LoadScene("quit");
-}
+        Application.Quit();
+    }
 }

@@ -22,11 +22,11 @@ public class stats : MonoBehaviour
     {
         if (gameObject.name == "coinstext")
         {
-            GetComponent<TextMesh>().text = "Coins :" + GM.coinTotal;
+            GetComponent<TextMesh>().text = " " + GM.coinTotal;
         }
         if (gameObject.name == "timetext")
         {
-            GetComponent<TextMesh>().text = "Time: " + Mathf.Round(GM.timeTotal * 100f) / 100f + "s";
+            GetComponent<TextMesh>().text = "" + Mathf.Round(GM.timeTotal * 1f) / 1f + "s";
         }
         if (gameObject.name == "runstatus")
         {
