@@ -30,7 +30,7 @@ public class stats : MonoBehaviour
         }
         if (gameObject.name == "runstatus")
         {
-            GetComponent<TextMesh>().text = GM.lvlCompStatus;
+            GetComponent<TextMesh>().text = "Ohh no :( Try it again!";
         }
     }
 }
